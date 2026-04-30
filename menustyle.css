@@ -1,0 +1,128 @@
+*{
+   margin:0;
+   padding: 0;
+   box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1e1e24;
+    color: white;
+}
+.cabecalho{
+    background-color: rgb(255, 0, 0);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.menu-lateral{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #1e1e24;
+    padding-top: 80px;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+}
+.menu-lateral.ativo{
+    transform: translateX(0);
+}
+.menu-lateral ul{
+    list-style: none;
+}
+.menu-lateral a{
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-bottom: 1px solid #444;
+}
+.btn-menu{
+    background: transparent;
+    border: none;
+    width: 35px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1100;
+}
+.hamburguer{
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: aliceblue;
+    position: relative;
+    transition: 0.3s;
+}
+.hamburguer::before,.hamburguer::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: aliceblue;
+    left: 0;
+    transition: 0.3ms;
+}
+.hamburguer::before{top: -10px}
+.hamburguer::after{top: 10px}
+/* ANIMAÇÃO */
+.btn-menu.girar .hamburguer{
+    background: transparent;
+}
+.btn-menu.girar .hamburguer::before{
+    top: 0;
+    transform: rotate(45deg);
+}
+.btn-menu.girar .hamburguer::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+/* CHAVEAMENTO */
+.chaveamento{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+.jogo{
+    background-color: rgb(255, 198, 198);
+    color: #1e1e24;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+transition: al1 0.3s;
+}
+.s1{
+    grid-column: 2;
+    grid-row: 1/3;
+    align-self: center;
+    background-color: #a74343;
+}
+.s2{
+    grid-column: 2;
+    grid-row: 3/5;
+    align-self: center;
+    background-color: #a74343;
+}
+.f1{
+    grid-column: 3;
+    grid-row: 1/5;
+    align-self: center;
+    background-color: #cc0000;
+}
+.brilho-vencedor{
+    background-color: #ff2b2b;
+    color: rgb(255, 0, 0);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgb(255, 100, 100);
+}
